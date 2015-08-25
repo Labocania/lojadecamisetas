@@ -1,0 +1,39 @@
+<html>
+    <body>       
+        <table class="table table-bordered">
+            <% if flash[:notice] %>
+                <div class="alert-success" role="alert">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
+             <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th> 
+                    <th>Remover</th>           
+                 </tr>
+            </thead>
+            <tbody>
+                <%= render partial: "produto", collection: @produtos_por_nome %>
+             </tbody>
+         </table>
+
+        <table class="table table-bordered">
+             <thead>
+                 <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th> 
+                    <th>Remover</th>           
+                </tr>
+            </thead>
+            <tbody>
+                <%= render partial: "produto", collection: @produtos_por_preco %>
+            </tbody>
+        </table>
+        <%= link_to "Criar um novo produto", new_produto_path %>
+    </body>
+</html>
