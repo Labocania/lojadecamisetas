@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :departamentos
 
   root "produtos#index"
-  resources :produtos, only: [:new, :create, :destroy]
+  resources :produtos, only: [:new, :create, :destroy, :edit, :update]
   get "/produtos/busca" => "produtos#busca", as: :busca_produto
 =begin
            Prefix Verb   URI Pattern                       Controller#Action
@@ -17,7 +17,11 @@ edit_departamento GET    /departamentos/:id/edit(.:format) departamentos#edit
              root GET    /                                 produtos#index
          produtos POST   /produtos(.:format)               produtos#create
       new_produto GET    /produtos/new(.:format)           produtos#new
-          produto DELETE /produtos/:id(.:format)           produtos#destroy
+     edit_produto GET    /produtos/:id/edit(.:format)      produtos#edit
+          produto PATCH  /produtos/:id(.:format)           produtos#update
+                  PUT    /produtos/:id(.:format)           produtos#update
+                  DELETE /produtos/:id(.:format)           produtos#destroy
     busca_produto GET    /produtos/busca(.:format)         produtos#busca
+
 =end
 end

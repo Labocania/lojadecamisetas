@@ -1,0 +1,28 @@
+<%= form_for @produto do |f| %>			
+			<div class="form-group">
+				<%= f.label :nome %><br/>
+				<%= f.text_field :nome, class: "form-control" %>
+		 	</div>
+
+		 	<div class="form-group">
+				<%= f.label :descricao %><br/>
+				<%= f.text_area :descricao, class: "form-control", rows: 4 %>
+		 	</div>
+		 	<div class="form-inline">
+		 		<div class="form-group">
+					<%= f.label :quantidade %><br/>
+					<%= f.number_field :quantidade, step: 1, class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :preco %><br/>
+					<%= f.number_field :preco, class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :departamento %>
+					<%= f.collection_select :departamento_id, @departamento, :id, :nome, {}, class: "form-control" %>
+				</div>
+				<%= f.submit texto_da_acao, class: "btn btn-primary" %>
+			</div>
+		<% end %>
